@@ -1,1 +1,2 @@
-// criando arquivo
+#include <stdio.h>
+#include <ctype.h>
