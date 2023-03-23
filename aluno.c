@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>
-
-int main()
-{
-    return 0;
-}
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include "aluno.h"

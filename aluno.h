@@ -1,1 +1,1 @@
-#include <stdio.h>
+typedef struct aluno Aluno;
