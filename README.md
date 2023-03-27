@@ -4,3 +4,7 @@
   
 
   # Vantagens e Desvantagens
+# Vantagens 
+### - É extremamente eficiente para ordenar arquivos de dados.
+### - Necessita de apenas uma pequena pilha como memória auxiliar. 
+### - Requer O(n log n) comparações em média (caso médio) para ordenar n itens. 
