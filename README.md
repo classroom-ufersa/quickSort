@@ -10,7 +10,7 @@ Os dados da listas são divididos por um elemento por um elemento chamado pivô
 
 - Na maioria dos casos, o primeiro elemento da lista é escolhido como pivô, pois geralmente é o melhor valor.   
 
--Melhor Caso: o(n log n)
+- Melhor Caso: o(n log n)
 
 - Caso Médio: o(n log n)
 
@@ -27,7 +27,7 @@ Os dados da listas são divididos por um elemento por um elemento chamado pivô
 
  ## Desvantagens:
 
- -Tem um pior caso O(n2) comparações.
+ - Tem um pior caso O(n2) comparações.
  - Sua implementação é delicada e difícil:
  - Um pequeno engano pode levar a efeitos inesperados para
  algumas entradas de dados.
