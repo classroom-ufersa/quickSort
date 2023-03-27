@@ -4,7 +4,15 @@
   
 
   # Vantagens e Desvantagens
-# Vantagens 
+## Vantagens: 
 ### - É extremamente eficiente para ordenar arquivos de dados.
 ### - Necessita de apenas uma pequena pilha como memória auxiliar. 
 ### - Requer O(n log n) comparações em média (caso médio) para ordenar n itens. 
+ 
+
+ ## Desvantagens:
+### -Tem um pior caso O(n2) comparações.
+### - Sua implementação é delicada e difícil:
+### - Um pequeno engano pode levar a efeitos inesperados para
+### algumas entradas de dados.
+### - O método não é estável. 
