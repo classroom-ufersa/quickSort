@@ -73,44 +73,103 @@ void free_aluno(Aluno *aluno)
     free(aluno);
 }
 
-void trocar(char **a, char **b)
+// função de particionamento
+int partition(char **arr, int low, int high)
 {
-    char *temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-int particionar(char **arr, int baixo, int alto)
-{
-    char *pivo = arr[alto]; // escolhe o pivo como o ultimo elemento
-    int i = baixo - 1;      // indice do menor elemento
-
-    for (int j = baixo; j <= alto - 1; j++)
+    char *pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j <= high - 1; j++)
     {
-        if (strcmp(arr[j], pivo) < 0)
+        if (strcmp(arr[j], pivot) <= 0)
         {
-            i++; // incrementa o indice do menor elemento
-            trocar(&arr[i], &arr[j]);
+            i++;
+            // troca arr[i] com arr[j]
+            char *temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
-    trocar(&arr[i + 1], &arr[alto]);
-    return (i + 1);
+    // troca arr[i+1] com arr[high]
+    char *temp = arr[i + 1];
+    arr[i + 1] = arr[high];
+    arr[high] = temp;
+    return i + 1;
 }
 
-void quick_sort(char **arr, int baixo, int alto)
+// função QuickSort
+void quickSort(char **arr, int low, int high)
 {
     clock_t inicio, fim;
     double tempo_execucao;
-
-    // Inicio da funcao quick_sort
-    inicio = clock(); // Armazena o horario de inicio da funcao
-    if (baixo < alto)
+    if (low < high)
     {
-        int pi = particionar(arr, baixo, alto);
-        quick_sort(arr, baixo, pi - 1);
-        quick_sort(arr, pi + 1, alto);
+        // index é o índice da partição
+        int index = partition(arr, low, high);
+        // ordena a sublista à esquerda da partição
+        quickSort(arr, low, index - 1);
+        // ordena a sublista à direita da partição
+        quickSort(arr, index + 1, high);
     }
     fim = clock();                                                // Armazena o horario de termino da funcao
     tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC;   // Calcula o tempo de execucao da funcao
     printf("Tempo de execucao: %.2f segundos\n", tempo_execucao); // Exibindo o tempo de execucao da funcao
+}
+
+void ordena_alunos(Aluno **alunos, int low, int n_alunos)
+{
+    Aluno *aux;
+    int i, j;
+    char *iniciais[n_alunos];
+    low = 0;
+
+    for (i = 0; i < n_alunos; i++)
+    {
+        iniciais[i] = alunos[i]->nome[0];
+    }
+
+    quickSort(iniciais, low, n_alunos);
+
+    for (i = 0; i < n_alunos; i++)
+    {
+        for (j = 0; j < n_alunos; j++)
+        {
+            if (iniciais[i] == alunos[j]->nome[0])
+            {
+                aux = alunos[i];
+                alunos[i] = alunos[j];
+                alunos[j] = aux;
+            }
+        }
+    }
+}
+
+void atualiza_arquivo(Aluno **alunos, int low, int n_alunos)
+{
+    int i;
+    low = 0;
+    FILE *arquivo;
+    arquivo = fopen("dados_alunos.txt", "w"); // Abre o arquivo para escrita
+
+    if (arquivo == NULL)
+    {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+
+    ordena_alunos(alunos, low, n_alunos);
+
+    for (i = 0; i < n_alunos; i++)
+    {
+        if (i == n_alunos - 1)
+        {
+            fprintf(arquivo, "%s;%d;%d", alunos[i]->nome, alunos[i]->matricula, alunos[i]->documento);
+        }
+        else
+        {
+            fprintf(arquivo, "%s;%d;%d\n", alunos[i]->nome, alunos[i]->matricula, alunos[i]->documento);
+        }
+    }
+
+    fclose(arquivo); // Fecha o arquivo
+    printf("Arquivo atualizado!\n");
 }
