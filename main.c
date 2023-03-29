@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "aluno.c"
-#define Quantidade_MAX 10
+#define Quantidade_MAX 2
 
 int main(void)
 {
