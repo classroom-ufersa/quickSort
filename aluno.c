@@ -61,3 +61,8 @@ void quick_sort(char **arr, int baixo, int alto)
         quicksort(arr, pi + 1, alto);
     }
 }
+
+void free_aluno(Aluno *aluno)
+{
+    free(aluno);
+}
