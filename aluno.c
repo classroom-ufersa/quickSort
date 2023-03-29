@@ -107,8 +107,8 @@ void quick_sort(char **arr, int baixo, int alto)
     if (baixo < alto)
     {
         int pi = particionar(arr, baixo, alto);
-        quicksort(arr, baixo, pi - 1);
-        quicksort(arr, pi + 1, alto);
+        quick_sort(arr, baixo, pi - 1);
+        quick_sort(arr, pi + 1, alto);
     }
     fim = clock();                                                // Armazena o horario de termino da funcao
     tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC;   // Calcula o tempo de execucao da funcao
