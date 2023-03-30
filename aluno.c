@@ -117,7 +117,7 @@ void quickSort(char **arr, int low, int high)
    T(n) = O(n²)
 */
 
-void ordena_alunos(Aluno **alunos, int y, int n_alunos)
+void ordena_alunos(Aluno **alunos, int n_alunos)
 {
     Aluno *aux;
     int i, j;
@@ -145,7 +145,7 @@ void ordena_alunos(Aluno **alunos, int y, int n_alunos)
     }
 }
 
-void atualiza_arquivo(Aluno **alunos, int x, int n_alunos)
+void atualiza_arquivo(Aluno **alunos, int n_alunos)
 {
     int i;
     FILE *arquivo;
@@ -157,7 +157,7 @@ void atualiza_arquivo(Aluno **alunos, int x, int n_alunos)
         exit(1);
     }
 
-    ordena_alunos(alunos, 0, n_alunos);
+    ordena_alunos(alunos, n_alunos);
 
     for (i = 0; i < n_alunos; i++)
     {

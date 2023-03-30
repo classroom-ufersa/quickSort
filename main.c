@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "aluno.c"
-#define Quantidade_MAX 2
+#define Quantidade_MAX 4
 
 int main(void)
 {
@@ -10,7 +10,6 @@ int main(void)
     int n_alunos = obter_alunos(alunos), i; // vetor preenchido no inicio do programa
     char nome[81];
     int matricula, documento;
-    int n = 0;
 
     printf("Bem-vindo ao Programa de Ordenacao de Alunos!\n");
     int escolha = 0;
@@ -40,7 +39,7 @@ int main(void)
                 // Cria o novo aluno usando as informações fornecidas pelo usuário
                 Aluno *novo_aluno = cria_aluno(nome, matricula, documento);
                 alunos[n_alunos++] = novo_aluno;
-                atualiza_arquivo(alunos, n, n_alunos);
+                atualiza_arquivo(alunos, n_alunos);
             }
             else
             {
