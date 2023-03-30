@@ -125,21 +125,21 @@ void ordena_alunos(Aluno **alunos, int n_alunos)
 
     for (i = 0; i < n_alunos; i++)
     {
-        iniciais[i] = &(alunos[i]->nome[0]); // correção aqui
+        iniciais[i] = &(alunos[i]->nome[0]);
     }
 
-    quickSort(iniciais, 0, n_alunos - 1); // correção aqui
+    quickSort(iniciais, 0, n_alunos - 1);
 
     for (i = 0; i < n_alunos; i++)
     {
-        for (j = i + 1; j < n_alunos; j++) // correção aqui
+        for (j = i + 1; j < n_alunos; j++)
         {
-            if (iniciais[i] == &(alunos[j]->nome[0])) // correção aqui
+            if (iniciais[i] == &(alunos[j]->nome[0]))
             {
                 aux = alunos[i];
                 alunos[i] = alunos[j];
                 alunos[j] = aux;
-                break; // correção aqui
+                break;
             }
         }
     }
