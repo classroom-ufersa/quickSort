@@ -99,8 +99,6 @@ int partition(char **arr, int low, int high)
 // função QuickSort
 void quickSort(char **arr, int low, int high)
 {
-    clock_t inicio, fim;
-    double tempo_execucao;
     if (low < high)
     {
         // index é o índice da partição
@@ -110,24 +108,27 @@ void quickSort(char **arr, int low, int high)
         // ordena a sublista à direita da partição
         quickSort(arr, index + 1, high);
     }
-    fim = clock();                                                // Armazena o horario de termino da funcao
-    tempo_execucao = ((double)(fim - inicio)) / CLOCKS_PER_SEC;   // Calcula o tempo de execucao da funcao
-    printf("Tempo de execucao: %.2f segundos\n", tempo_execucao); // Exibindo o tempo de execucao da funcao
 }
 
-void ordena_alunos(Aluno **alunos, int low, int n_alunos)
+/*
+   Pior e Medio quicksort
+   T(n) = O(nlogn)
+   Melhor quicksort
+   T(n) = O(n²)
+   */
+
+void ordena_alunos(Aluno **alunos, int num, int n_alunos)
 {
     Aluno *aux;
     int i, j;
     char *iniciais[n_alunos];
-    low = 0;
 
     for (i = 0; i < n_alunos; i++)
     {
         iniciais[i] = alunos[i]->nome[0];
     }
 
-    quickSort(iniciais, low, n_alunos);
+    quickSort(iniciais, 0, n_alunos);
 
     for (i = 0; i < n_alunos; i++)
     {
@@ -143,10 +144,9 @@ void ordena_alunos(Aluno **alunos, int low, int n_alunos)
     }
 }
 
-void atualiza_arquivo(Aluno **alunos, int low, int n_alunos)
+void atualiza_arquivo(Aluno **alunos, int n, int n_alunos)
 {
     int i;
-    low = 0;
     FILE *arquivo;
     arquivo = fopen("dados_alunos.txt", "w"); // Abre o arquivo para escrita
 
@@ -156,7 +156,7 @@ void atualiza_arquivo(Aluno **alunos, int low, int n_alunos)
         exit(1);
     }
 
-    ordena_alunos(alunos, low, n_alunos);
+    ordena_alunos(alunos, 0, n_alunos);
 
     for (i = 0; i < n_alunos; i++)
     {
