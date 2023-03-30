@@ -62,10 +62,10 @@ void exibe_alunos(Aluno **alunos, int n_alunos)
 {
     int i;
     printf("----------ALUNOS----------\n");
-    printf("Nome        Matricula       Documento\n");
+    printf("Nome        \t\tMatricula       \tDocumento\n");
     for (i = 0; i < n_alunos; i++)
     {
-        printf("%d - %s\t\t%d\t%d\n", i + 1, alunos[i]->nome, alunos[i]->matricula, alunos[i]->documento);
+        printf("%d - %s\t\t%d\t\t\t%d\n", i + 1, alunos[i]->nome, alunos[i]->matricula, alunos[i]->documento);
     }
 }
 void free_aluno(Aluno *aluno)

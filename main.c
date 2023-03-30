@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "aluno.c"
-#define Quantidade_MAX 4
+#define Quantidade_MAX 10
 
 int main(void)
 {
@@ -11,7 +11,6 @@ int main(void)
     char nome[81];
     int matricula, documento;
 
-    printf("Bem-vindo ao Programa de Ordenacao de Alunos!\n");
     int escolha = 0;
     while (escolha != 3)
     {
