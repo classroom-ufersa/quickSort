@@ -6,6 +6,7 @@
 
 int main(void)
 {
+    system("cls");
     Aluno *alunos[Quantidade_MAX];          // vetor de ponteiros para Aluno
     int n_alunos = obter_alunos(alunos), i; // vetor preenchido no inicio do programa
     char nome[81];

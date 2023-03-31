@@ -99,6 +99,8 @@ int partition(char **arr, int low, int high)
 // função QuickSort
 void quickSort(char **arr, int low, int high)
 {
+    clock_t start = 000, end;
+    double tempo_execucao;
     if (low < high)
     {
         // index é o índice da partição
@@ -108,6 +110,9 @@ void quickSort(char **arr, int low, int high)
         // ordena a sublista à direita da partição
         quickSort(arr, index + 1, high);
     }
+    end = clock();                                                // Armazena o horario de termino da funcao
+    tempo_execucao = ((double)(end - start)) / CLOCKS_PER_SEC;    // Calcula o tempo de execucao da funcao
+    printf("Tempo de execucao: %.2f segundos\n", tempo_execucao); // Exibindo o tempo de execucao da funcao
 }
 
 /*
