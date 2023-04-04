@@ -32,4 +32,5 @@ Os dados da listas são divididos por um elemento por um elemento chamado pivô
  - Um pequeno engano pode levar a efeitos inesperados para
  algumas entradas de dados.
  - O método não é estável. 
-
+## Link da apresentação
+- https://drive.google.com/file/d/1q_pB2tTni9tdqzn6UVtRfIY70EQhLsTQ/view?usp=drivesdk
